@@ -1,13 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Ricalco Web</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="overlay">
-    <img id="ricalco-image" src="image.png" alt="Immagine da ricalcare">
-  </div>
-  <script src="script.js"></script>
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        #image-preview {
+            margin-top: 20px;
+            max-width: 80%;
+            height: auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: none; /* Inizialmente nascosto */
+        }
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #btn {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;          
+        }
+    </style>
+    <body>
+        
+        <h2>Riaclco Web</h2>
+        <input type="file" id="imageInput" accept="image/*">
+        <img id="image-preview" src="#" alt="Anteprima immagine">
+        <script type="module" src="main.js"></script>
+        
+        <button id="btn">Open Video in Fullscreen Mode</button>
+        
+        
+        <script>
+            document.getElementById("btn").addEventListener("click", () => {
+                  var doc = window.document;
+                  var docEl = doc.documentElement;
+                
+                  var requestFullScreen =
+                    docEl.requestFullscreen ||
+                    docEl.mozRequestFullScreen ||
+                    docEl.webkitRequestFullScreen ||
+                    docEl.msRequestFullscreen;
+                  var cancelFullScreen =
+                    doc.exitFullscreen ||
+                    doc.mozCancelFullScreen ||
+                    doc.webkitExitFullscreen ||
+                    doc.msExitFullscreen;
+                
+                  if (
+                    !doc.fullscreenElement &&
+                    !doc.mozFullScreenElement &&
+                    !doc.webkitFullscreenElement &&
+                    !doc.msFullscreenElement
+                  ) {
+                    requestFullScreen.call(docEl);
+                  } else {
+                    cancelFullScreen.call(doc);
+                  }
+            });
+        </script>
+    </body>
 </html>
