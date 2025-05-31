@@ -1,4 +1,4 @@
-:root {
+/*:root {
 
     --accent: #6AF;
     --accent-dark: #00F;
@@ -14,4 +14,27 @@
     --secondary-dark: #444;
     --secondary-text: #111;
 
+}*/
+:root {
+    --white: #FFF;
+    --black: #000;
+    
+    --accent:            #448AFF;
+    --tdark-accent:      #24569D;
+
+    --background:          var(--white);
+    
+    --dark-primary:      #D32F2F;
+    --dark-secondary:    #80201D;
+    
+    --divider:           #BDBDBD;
+
+    --light-primary-pink:#FFCDD2;
+    --light-primary-blue:#B2EBF2;
+
+    --primary:           #F44336;
+    --primary-text:        var(--black);
+
+    --secondary:         #B32A27;
+    --secondary-text:    #757575;
 }
